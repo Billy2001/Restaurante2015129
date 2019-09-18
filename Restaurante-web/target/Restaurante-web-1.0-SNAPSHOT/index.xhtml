@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>La Parrillada</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <style>                            
+            body{
+                background-color: rgb(86, 236, 247);
+            }
+        </style>  
+    </h:head>
+    <h:body>
+
+        <hr/>
+        <center><font size="8">Restaurante la Parrillada</font></center>
+        <hr/>
+        <br/>
+
+        <img src="restaurante.jpg" align="left" width="900" height="500"></img>
+        <p:stack icon="stack.jpg" expanded="true" >
+         <p:menuitem value="Area" icon="0.png" outcome="/area/List"  />
+         <p:menuitem value="Cliente" icon="cliente.png" outcome="/cliente/List"  />
+         <p:menuitem value="Cocinero" icon="cooking.png" outcome="/cocinero/List"  />
+         <p:menuitem value="Detallefactura" icon="DEtalleFac.png" outcome="/detallefactura/List"  />
+         <p:menuitem value="Factura" icon="factura.png" outcome="/factura/List"  />
+         <p:menuitem value="Mesa" icon="mesa.png" outcome="/mesa/List"  />
+         <p:menuitem value="Mesero" icon="Mesero.png" outcome="/mesero/List"  />
+         <p:menuitem value="Platillos" icon="Platillo.png" outcome="/platillos/List"  />
+         </p:stack>
+     
+        
+        
+ 
+    </h:body>
+</html>
+

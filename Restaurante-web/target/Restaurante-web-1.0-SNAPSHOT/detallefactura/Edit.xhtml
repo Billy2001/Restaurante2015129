@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DetallefacturaEditDlg" widgetVar="DetallefacturaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDetallefacturaTitle}">
+            <h:form id="DetallefacturaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{detallefacturaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDetallefacturaLabel_iddetalleFactura}" for="iddetalleFactura" />
+                        <p:inputText id="iddetalleFactura" value="#{detallefacturaController.selected.iddetalleFactura}" title="#{bundle.EditDetallefacturaTitle_iddetalleFactura}" required="true" requiredMessage="#{bundle.EditDetallefacturaRequiredMessage_iddetalleFactura}"/>
+                        <p:outputLabel value="#{bundle.EditDetallefacturaLabel_idmenu}" for="idmenu" />
+                        <p:inputText id="idmenu" value="#{detallefacturaController.selected.idmenu}" title="#{bundle.EditDetallefacturaTitle_idmenu}" required="true" requiredMessage="#{bundle.EditDetallefacturaRequiredMessage_idmenu}"/>
+                        <p:outputLabel value="#{bundle.EditDetallefacturaLabel_idcocinero}" for="idcocinero" />
+                        <p:selectOneMenu id="idcocinero" value="#{detallefacturaController.selected.idcocinero}" required="true" requiredMessage="#{bundle.EditDetallefacturaRequiredMessage_idcocinero}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cocineroController.itemsAvailableSelectOne}"
+                                           var="idcocineroItem"
+                                           itemValue="#{idcocineroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditDetallefacturaLabel_idfactura}" for="idfactura" />
+                        <p:selectOneMenu id="idfactura" value="#{detallefacturaController.selected.idfactura}" required="true" requiredMessage="#{bundle.EditDetallefacturaRequiredMessage_idfactura}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{facturaController.itemsAvailableSelectOne}"
+                                           var="idfacturaItem"
+                                           itemValue="#{idfacturaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditDetallefacturaLabel_idplatillos}" for="idplatillos" />
+                        <p:selectOneMenu id="idplatillos" value="#{detallefacturaController.selected.idplatillos}" required="true" requiredMessage="#{bundle.EditDetallefacturaRequiredMessage_idplatillos}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{platillosController.itemsAvailableSelectOne}"
+                                           var="idplatillosItem"
+                                           itemValue="#{idplatillosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{detallefacturaController.update}" value="#{bundle.Save}" update="display,:DetallefacturaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DetallefacturaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DetallefacturaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
